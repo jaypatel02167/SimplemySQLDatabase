@@ -1,3 +1,3 @@
 import sys
-sys.path.insert(0, 'D:\\Practice Programs\\Python\\Example Server')
+sys.path.insert(0, 'D:\\Practice_Programs\\Python\\Example_Server')
 from flask_app import app as application
