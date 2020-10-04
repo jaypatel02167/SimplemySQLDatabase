@@ -1,31 +1,32 @@
+#INSERT INTO user_info (username, user_id) VALUES ("Caleb",8000003);
+
 from flask import Flask, render_template
-import mysql.connector as mysql
+from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 
+mysql = MySQL()
 
-db = mysql.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "P@ssw0rd",
-    database = "flask_app"
-)
+# MySQL configurations
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'P@ssw0rd'
+app.config['MYSQL_DATABASE_DB'] = 'flask_app'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
-cursor = db.cursor()
+mysql.init_app(app)
 
 
 @app.route('/')
-def hello_world():
+def display_db():
+    db = mysql.connect()
+    cursor = db.cursor()
     cursor.execute('select * from user_info')
     rows = cursor.fetchall()
 
     print('Total Row(s):', cursor.rowcount)
 
     return render_template('index.html', rows=rows)
-    
+    #return str(rows)  
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
-db.close() 
+    app.run()
