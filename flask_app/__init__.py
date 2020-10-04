@@ -5,10 +5,11 @@ app = Flask(__name__)
 
 mysql = MySQL()
 
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'P@ssw0rd'
 app.config['MYSQL_DATABASE_DB'] = 'flask_app'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+
 
 mysql.init_app(app)
 
