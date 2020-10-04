@@ -1,0 +1,10 @@
+<doctype html>
+    <title>Database</title>
+    <table border = 1>
+        {% for row in rows %}
+            <tr>
+                <td> {{row[0]}}</td>
+                <td> {{row[1]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
