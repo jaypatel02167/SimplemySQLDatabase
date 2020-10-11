@@ -20,8 +20,11 @@ def display_db():
     cursor = db.cursor()
     cursor.execute('select * from user_info')
     rows = cursor.fetchall()
-
-    return render_template('index.html', token='Hello Flask + React')
+    
+    # for row in rows:
+    #     print(row)
+    
+    return render_template('index.html', token=rows)
 
 if __name__ == "__main__":
     app.run()
