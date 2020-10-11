@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h2>Database</h2>
+        <p>Username | User ID</p>
       <p>{window.token}</p>
       </header>
     </div>
