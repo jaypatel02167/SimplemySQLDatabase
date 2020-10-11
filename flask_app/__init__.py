@@ -20,12 +20,12 @@ def display_db():
     cursor = db.cursor()
     cursor.execute('select * from user_info')
     rows = cursor.fetchall()
-    print('Github update')
-    print('Total Row(s):', cursor.rowcount)
-    for x in rows:
-        print(x)
 
-    return render_template('index.html', rows=rows)
+    #print('Total Row(s):', cursor.rowcount)
+    # for x in rows:
+    #     print(x)
+
+    return render_template('index.html', token=rows)
 
 if __name__ == "__main__":
     app.run()
