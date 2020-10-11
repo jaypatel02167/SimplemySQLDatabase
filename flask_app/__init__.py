@@ -20,11 +20,13 @@ def display_db():
     cursor = db.cursor()
     cursor.execute('select * from user_info')
     rows = cursor.fetchall()
+    tokens = []
+    for row in rows:
+        tokens += row
     
-    # for row in rows:
-    #     print(row)
-    
-    return render_template('index.html', token=rows)
+    tokensString = ' '.join([str(elem) for elem in tokens]) 
+
+    return render_template('index.html', token=tokensString)
 
 if __name__ == "__main__":
     app.run()

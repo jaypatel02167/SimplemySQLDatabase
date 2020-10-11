@@ -6,7 +6,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Database</p>
+        <h2>Database</h2>
+      <p>{window.token}</p>
       </header>
     </div>
   );
