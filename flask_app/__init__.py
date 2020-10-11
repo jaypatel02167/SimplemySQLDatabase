@@ -25,7 +25,7 @@ def display_db():
     # for x in rows:
     #     print(x)
 
-    return render_template('index.html', token=rows)
+    return render_template('index.html', rows=rows)
 
 if __name__ == "__main__":
     app.run()
